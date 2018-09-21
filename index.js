@@ -117,7 +117,8 @@ Exercise 1
 @description Return an Array with Clients 'id' sort by 'rut'
 */
 function Exercise1(){
-  //TODO:
+  return Clients.sort((a, b) => parseInt(a.rut) - parseInt(b.rut)).map(client => client.id);
+
 }
 //Answer// => [ 9, 6, 7, 5, 2, 4, 3, 1, 8 ]
 
@@ -128,8 +129,16 @@ Exercise 2
               by the TOTAL sum of the balances of each Clients Accounts.
 */
 function Exercise2(){
-  //TODO:
+
+  return Clients.map(client => {
+    client.balance = Accounts.filter(account => account.clientId === client.id).map(el => el.balance).reduce((prev, next) => prev + next);
+    return client;
+  })
+  .sort((current, next) => next.balance - current.balance)
+  .map(client => client.name);
+
 }
+
 /* //Answer//=> [
   'DOMINGUEZ HOUSE GONZALES SALAZAR',
   'BRADY MARY RANDALL FERNANDEZ',
