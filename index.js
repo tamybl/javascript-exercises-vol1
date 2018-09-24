@@ -159,6 +159,19 @@ Exercise 3
               and the Values are the 'rut' of his Clients sorted alphabetically by 'name'
 */
 function Exercise3(){
+  let objByBank = new Object();
+  Banks.map( bank => {
+    objByBank[bank.name] = Accounts.filter(account => account.bankId === bank.id);
+  });
+
+  console.log(objByBank);
+
+  // Generar objeto, y recorrer cada banco distinto asignando como key la propiedad name : OK.
+  // Almacenar cada id de cliente que tenga el id del banco en el array accounts.
+
+
+
+
   //TODO:
 }
 /* //Answer// => {
